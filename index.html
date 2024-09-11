@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pictionary Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pictionary Game</h1>
+        <button id="startButton">Start Game</button>
+        <div id="wordList" class="word-list"></div>
+        <div id="timer" class="timer">Time Left: 60s</div>
+    </div>
+
+    <audio id="alarmSound" src="alarm.mp3" preload="auto"></audio>
+
+    <script>
+        const words = [
+            'apple', 'banana', 'cat', 'dog', 'elephant', 
+            'flower', 'guitar', 'house', 'ice cream', 'jacket',
+            'kite', 'lion', 'mountain', 'notebook', 'ocean',
+            'pizza', 'queen', 'rainbow', 'sun', 'tree',
+            'umbrella', 'violin', 'water', 'xylophone', 'zebra'
+        ];
+
+        let timer;
+        let timeLeft = 60;
+
+        const startButton = document.getElementById('startButton');
+        const wordList = document.getElementById('wordList');
+        const timerDisplay = document.getElementById('timer');
+        const alarmSound = document.getElementById('alarmSound');
+
+        function getRandomWords() {
+            const shuffled = words.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 5);
+        }
+
+        function startTimer() {
+            timeLeft = 60;
+            timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+
+            timer = setInterval(() => {
+                timeLeft--;
+                timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+                if (timeLeft === 0) {
+                    clearInterval(timer);
+                    alarmSound.play();
+                }
+            }, 1000);
+        }
+
+        function startGame() {
+            clearInterval(timer);  // Clear previous timer
+            const randomWords = getRandomWords();
+            wordList.innerHTML = `<ul>${randomWords.map(word => `<li>${word}</li>`).join('')}</ul>`;
+            startTimer();
+        }
+
+        startButton.addEventListener('click', startGame);
+    </script>
+</body>
+</html>
