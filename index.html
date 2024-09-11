@@ -38,7 +38,7 @@
         ];
 
         let timer;
-        let timeLeft = 10;
+        let timeLeft = 60;
 
         const startButton = document.getElementById('startButton');
         const wordList = document.getElementById('wordList');
@@ -68,6 +68,15 @@
             clearInterval(timer);  // Clear previous timer
             const randomWords = getRandomWords();
             wordList.innerHTML = `<ul>${randomWords.map(word => `<li>${word}</li>`).join('')}</ul>`;
+
+            // Ensure sound is loaded and ready
+            alarmSound.play().then(() => {
+                alarmSound.pause();
+                alarmSound.currentTime = 0;
+            }).catch(error => {
+                console.log('Sound loading error:', error);
+            });
+            
             startTimer();
         }
 
