@@ -8,21 +8,33 @@
 </head>
 <body>
     <div class="container">
-        <h1>Pictionary Game</h1>
+        <h1>Furhat Pictionary Game</h1>
         <button id="startButton">Start Game</button>
         <div id="wordList" class="word-list"></div>
         <div id="timer" class="timer">Time Left: 60s</div>
     </div>
 
-    <audio id="alarmSound" src="alarm.mp3" preload="auto"></audio>
+    <audio id="alarmSound" src="alarm.wav" preload="auto"></audio>
 
     <script>
         const words = [
-            'apple', 'banana', 'cat', 'dog', 'elephant', 
-            'flower', 'guitar', 'house', 'ice cream', 'jacket',
-            'kite', 'lion', 'mountain', 'notebook', 'ocean',
-            'pizza', 'queen', 'rainbow', 'sun', 'tree',
-            'umbrella', 'violin', 'water', 'xylophone', 'zebra'
+            'Robot', 'Android', 'Cyborg', 'Drone', 'Mech', 'Humanoid', 'Exoskeleton', 'Bionic', 
+            'Servo', 'Sensor', 'Actuator', 'Gears', 'Circuit', 'Drone', 'Processor', 'AI', 
+            'Quantum', 'Blockchain', 'Algorithm', 'Firmware', 'Cloud', 'Server', 'Satellite', 
+            'Avatar', 'Turing', 'Factory', 'Automation', 'Neural', 'Virtual', 'Augmented', 'Hologram', 
+            'Laser', 'Rocket', 'Spaceship', 'Mars', 'Rover', 'Arm', 'Battery', 'Monitor', 'Keyboard', 
+            'Mouse', 'Speaker', 'Chip', 'Nanobot', 'Drone', 'Robotdog', 'Exosuit', 'Helmet', 'Bot', 
+            'Headset', 'Camera', 'Robotarm', 'Power', 'Cable', 'Plug', 'Touchscreen', 'Helmet', 
+            'Electrode', '3Dprinter', 'Lens', 'Saturn', 'Robocar', 'Data', 'WiFi', 'Biometrics', 
+            'Drone', 'Charger', 'Code', 'Hacker', 'Robotbrain', 'Sensor', 'Drone', 'Radar', 
+            'Password', 'Encryption', 'Botany', 'Laser', 'Thermostat', 'Factory', 'Robotfoot', 
+            'Brain', 'Cannon', 'Xray', 'Scanner', 'Molecule', 'Neon', 'Wormhole', 'Cosmos', 
+            'Singularity', 'Simulation', 'Energy', 'Magnet', 'Jetpack', 'Satellite', 'Rocket', 
+            'Engine', 'Neuron', 'Virus', 'Tesla', 'Radiation', 'Chappie', 'Robocop', 'Ava', 
+            'Ultron', 'Optimus', 'Terminator', 'Robofoot', 'Spacesuit', 'Wheel', 'Television', 
+            'Controller', 'Robotface', 'Scanner', 'Factory', 'Robotfinger', 'Grid', 'Joystick', 
+            'Launchpad', 'Telescope', 'Universe', 'Printer', 'Solar', 'Cog', 'Watch', 'Dronecam', 
+            'Vacuum', 'Wing', 'Shield', 'Gyroscope', 'Dronewing', 'Hub', 'Robotleg', 'Magneto'
         ];
 
         let timer;
